@@ -3,6 +3,7 @@ import { AnimalContext } from "./AnimalProvider"
 import { LocationContext } from "../location/LocationProvider"
 import { CustomerContext } from "../customer/CustomerProvider"
 import { AnimalCard } from "./AnimalCard"
+import { useHistory } from "react-router-dom"
 import "./Animal.css"
 
 export const AnimalList = () => {
@@ -14,12 +15,22 @@ export const AnimalList = () => {
   useEffect(() => {
     console.log("AnimalList: Initial Render Before Data")
     getAnimals()
+    .then(getCustomers)
+    .then(getLocations)
 
   }, [])
 
 
+
+const history = useHistory()
+
   return (
+    <>
     <div className="animals">
+      <h2>Animals</h2>
+        <button onClick={() => {history.push("/animals/create")}}>
+        Add Animal
+        </button>
       {console.log("AnimalList: Render", animals)}
       {
         animals.map(animal => {
@@ -28,5 +39,6 @@ export const AnimalList = () => {
         })
       }
     </div>
+    </>
   )
 }

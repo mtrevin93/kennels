@@ -3,6 +3,7 @@ import { Route } from "react-router-dom"
 import { Home } from "./Home"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
+import { AnimalForm } from "./animal/AnimalForm"
 import { LocationProvider } from "./location/LocationProvider"
 import { LocationList } from "./location/LocationList"
 import { EmployeeList } from "./employee/EmployeeList"
@@ -19,13 +20,16 @@ export const ApplicationViews = () => {
             </Route>
             {/* Render the animal list when http://localhost:3000/animals */}
             <AnimalProvider>
-                <LocationProvider>
                     <CustomerProvider>
-                        <Route exact path="/animals">
-                            <AnimalList />
-                        </Route>
+                        <LocationProvider>
+                            <Route exact path="/animals">
+                                <AnimalList />
+                            </Route>
+                            <Route exact path="/animals/create">
+                                <AnimalForm />
+                            </Route>
+                        </LocationProvider>
                     </CustomerProvider>
-                </LocationProvider>
             </AnimalProvider>
             <LocationProvider>
                 <Route path="/locations">
