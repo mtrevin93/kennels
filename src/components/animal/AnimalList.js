@@ -9,14 +9,14 @@ import "./Animal.css"
 export const AnimalList = () => {
   // This state changes when `getAnimals()` is invoked below
   const { animals, getAnimals } = useContext(AnimalContext)
-  const { locations, getLocations } = useContext(LocationContext)
-  const { customers, getCustomers } = useContext(CustomerContext)
+  // const { locations, getLocations } = useContext(LocationContext)
+  // const { customers, getCustomers } = useContext(CustomerContext)
   //useEffect - reach out to the world for something
   useEffect(() => {
     console.log("AnimalList: Initial Render Before Data")
     getAnimals()
-    .then(getCustomers)
-    .then(getLocations)
+    // .then(getCustomers)
+    // .then(getLocations)
 
   }, [])
 

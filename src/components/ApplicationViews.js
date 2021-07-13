@@ -4,6 +4,7 @@ import { Home } from "./Home"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
 import { AnimalForm } from "./animal/AnimalForm"
+import { AnimalDetail } from "./animal/AnimalDetail"
 import { LocationProvider } from "./location/LocationProvider"
 import { LocationList } from "./location/LocationList"
 import { LocationForm } from "./location/LocationForm"
@@ -29,6 +30,10 @@ export const ApplicationViews = () => {
                             </Route>
                             <Route exact path="/animals/create">
                                 <AnimalForm />
+                            </Route>
+                            <Route exact path="/animals/detail/:animalId(\d+)">
+                                <AnimalDetail />
+                                {/* : means grab anything that looks like this. /d+ is a selector for positive digits */}
                             </Route>
                         </LocationProvider>
                     </CustomerProvider>
