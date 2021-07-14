@@ -19,9 +19,7 @@ export const EmployeeDetail = () => {
   }, [])
   return (
     <section className="employee">
-      <Link to={`/employees/detail/${employee.id}`}>
       <h3 className="employee__name">{employee.name}</h3>
-      </Link>
       {/*Question mark: Tries to find property, skips it if DNE. Otherwise nested trying to access property of undefined obj would blow up.*/}
       <div className="animal__location">Location: {employee.location?.name}</div>
     </section>
